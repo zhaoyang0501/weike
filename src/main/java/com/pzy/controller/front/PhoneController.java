@@ -1,5 +1,6 @@
 package com.pzy.controller.front;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.pzy.entity.Category;
@@ -74,6 +77,27 @@ public class PhoneController {
 	}
 	@RequestMapping("upload")
 	public String upload(Model model,HttpSession httpSession) {
+		model.addAttribute("projects",projectService.findTop3());
+		return "phone/upload";
+	}
+	@RequestMapping("doupload")
+	public String doupload(@RequestParam(value = "uploadfile", required = false) MultipartFile file, Project project, Model model,HttpSession httpSession) {
+		  System.out.println("开始");  
+	        String path = httpSession.getServletContext().getRealPath("upload");  
+	        String fileName = file.getOriginalFilename();  
+//	        String fileName = new Date().getTime()+".jpg";  
+	        System.out.println(path);  
+	        File targetFile = new File(path, fileName);  
+	        if(!targetFile.exists()){  
+	            targetFile.mkdirs();  
+	        }  
+	  
+	        //保存  
+	        try {  
+	            file.transferTo(targetFile);  
+	        } catch (Exception e) {  
+	            e.printStackTrace();  
+	        }  
 		model.addAttribute("projects",projectService.findTop3());
 		return "phone/upload";
 	}

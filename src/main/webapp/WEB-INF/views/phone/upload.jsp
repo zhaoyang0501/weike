@@ -56,6 +56,8 @@
 					<div class="tabs">
 						<div id="tab1" class="card tab active  content" style="padding: 0px; margin: 0px;height: 90%">
 							  <div class="list-block">
+							   <form method="post" enctype="multipart/form-data"  action="doupload">
+							   
 							    <ul>
 							     <li>
 							        <div class="item-content">
@@ -63,7 +65,7 @@
 							          <div class="item-inner">
 							            <div class="item-title label">选择视频</div>
 							            <div class="item-input">
-							              <input type="file" placeholder="">
+							              <input type="file" name='uploadfile' placeholder="">
 							            </div>
 							          </div>
 							        </div>
@@ -75,7 +77,7 @@
 							          <div class="item-inner">
 							            <div class="item-title label">课程名称</div>
 							            <div class="item-input">
-							              <input type="text" placeholder="">
+							              <input name='name' type="text" placeholder="">
 							            </div>
 							          </div>
 							        </div>
@@ -87,21 +89,26 @@
 							          <div class="item-inner">
 							            <div class="item-title label">课程介绍</div>
 							            <div class="item-input">
-							              <textarea rows="3" cols=""></textarea>
+							              <textarea name='remark' rows="3" cols=""></textarea>
 							            </div>
 							          </div>
 							        </div>
 							      </li>
 							      
 							      </ul>
-							      
+							      </form>
 							       <div class="content-block">
     <div class="row">
       <div class="col-50"><a href="#" class="button button-big button-fill button-danger">取消</a></div>
-      <div class="col-50"><a href="#" class="button button-big button-fill button-success">提交</a></div>
+      <div class="col-50"><a href="#" onclick="fun_submit()" class="button button-big button-fill button-success">提交</a></div>
     </div>
   </div>
+  <script type="text/javascript">
   
+  function fun_submit(){
+	  $("form").submit();
+  }
+  </script>
 							      </div>
 						</div>
 
