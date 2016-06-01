@@ -35,6 +35,21 @@ public class ProjectService {
  				new PageRequest(0, 10, new Sort(Direction.DESC, "score")))
  				.getContent();
  	}
+
+ 	public List<Project> findByUser(final User user) {
+ 		Specification<Project> spec = new Specification<Project>() {
+            public Predicate toPredicate(Root<Project> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+            Predicate predicate = cb.conjunction();
+           
+            if (user != null) {
+                 predicate.getExpressions().add(cb.equal(root.get("user").as(User.class), user));
+            }
+            return predicate;
+            }
+       };
+       return  projectRepository.findAll(spec);
+ 	}
+ 	
      public List<Project> findAll() {
          return (List<Project>) projectRepository.findAll(new Sort(Direction.DESC, "id"));
      }

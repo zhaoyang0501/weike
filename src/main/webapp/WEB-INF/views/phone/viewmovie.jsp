@@ -52,7 +52,7 @@
     
 		     
 		        <div class="content-block" style="padding: 0px ;margin: 0px">
-		            <video src="http://www.w3school.com.cn/i/movie.ogg" controls="controls" style="width: 100%">
+		            <video src="../upload/${bean.img }" controls="controls" style="width: 100%">
 				your browser does not support the video tag
 					</video>
 		            <div class="list-block media-list" style="padding: 0px ;margin: 0px">

@@ -10,16 +10,16 @@
               <h1 class="title">微课</h1>
           </header>
           <nav class="bar bar-tab">
-              <a class="tab-item external " href="chart">
-                  <span class="icon icon-phone"></span>
+              <a class="tab-item external " href="login">
+                  <span class="icon icon-card""></span>
                   <span class="tab-label">登录</span>
               </a>
                <a class="tab-item external" href="project">
-                  <span class="icon icon-star"></span>
+                  <span class="icon icon-search"></span>
                   <span class="tab-label">课程检索</span>
               </a>
               <a class="tab-item external" href="upload">
-                  <span class="icon icon-friends"></span>
+                  <span class="icon icon-download"></span>
                   <span class="tab-label">我的上传</span>
               </a>
               <a class="tab-item external" href="center">

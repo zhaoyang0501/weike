@@ -41,9 +41,8 @@ function fun_goto(gotourl){
     <img style="text-align: center;" src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" width="40%">
     </div>
     <div class="card-footer no-border">
-      <a href="#" class="link">本月出勤：15天</a>
-      <a href="#" class="link">年假：10天</a>
-      <a href="#" class="link">加班：3天</a>
+      <a href="#" class="link">上传：4个</a>
+      <a href="#" class="link">已学习：4个课程</a>
     </div>
   </div>
        

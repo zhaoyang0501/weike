@@ -77,28 +77,31 @@ public class PhoneController {
 	}
 	@RequestMapping("upload")
 	public String upload(Model model,HttpSession httpSession) {
-		model.addAttribute("projects",projectService.findTop3());
+		User user=(User)httpSession.getAttribute("user");
+		model.addAttribute("projects",projectService.findByUser(user));
 		return "phone/upload";
 	}
 	@RequestMapping("doupload")
 	public String doupload(@RequestParam(value = "uploadfile", required = false) MultipartFile file, Project project, Model model,HttpSession httpSession) {
 		  System.out.println("开始");  
-	        String path = httpSession.getServletContext().getRealPath("upload");  
+	        String path = httpSession.getServletContext().getRealPath("/upload");  
 	        String fileName = file.getOriginalFilename();  
-//	        String fileName = new Date().getTime()+".jpg";  
 	        System.out.println(path);  
 	        File targetFile = new File(path, fileName);  
 	        if(!targetFile.exists()){  
 	            targetFile.mkdirs();  
 	        }  
-	  
 	        //保存  
 	        try {  
 	            file.transferTo(targetFile);  
 	        } catch (Exception e) {  
 	            e.printStackTrace();  
 	        }  
-		model.addAttribute("projects",projectService.findTop3());
+	        project.setImg(fileName);
+	        User user=(User)httpSession.getAttribute("user");
+	        project.setUser(user);
+	        projectService.save(project);
+			model.addAttribute("projects",projectService.findByUser(user));
 		return "phone/upload";
 	}
 	@RequestMapping("about")

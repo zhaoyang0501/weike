@@ -108,50 +108,35 @@
   function fun_submit(){
 	  $("form").submit();
   }
+  function fun_goto(gotourl){
+ 	 location.href = gotourl;
+  }
   </script>
 							      </div>
 						</div>
 
 						<div id="tab2" class="tab " style="padding: 0px; margin: 0px">
-							<div class="content-block" style="padding: 0px; margin: 0px">
-
-								<div class="list-block media-list" style="padding: 0px; margin: 0px">
-									<ul>
-									<c:forEach items="${lists2}" var="bean">
-										<li>
-												<div class="item-content">
-													<div class="item-media">
-														<img src="../img/user.png" style='width: 2.2rem;'>
-													</div>
-													<div class="item-inner">
-														<div class="item-title-row" style="color: #ff9600">${bean.user.name }     ${bean.user.tel }</div>
-														<p>${bean.remark }  </p>
-														<div style="float: right">${bean.createDate }</div>
-													</div>
-												</div>
-											</li>
-									</c:forEach>
-									
-										
-											
-										  <li>
-											<form action="discussadd" method="post">
-											<input name="type" type="hidden" value="2"/>
-												<div class="item-content">
-													<div class="item-inner">
-														<div class="item-title label">发表评论</div>
-														<div class="item-input">
-															<input name='remark' type="text" placeholder="谈一些你的看法吧">
-														</div>
-														<button type="submit" class="button  button-fill button-success">提交</button>
-													</div>
-												</div>
-											</form>
-										</li>
-
-									</ul>
-								</div>
-							</div>
+		 
+		   <div class="list-block media-list" style="margin-top: 2px">
+			    <ul>
+			    <c:forEach items="${projects }" var="bean">
+			    <li>
+			        <a onclick="fun_goto('viewmovie?id=${bean.id }')" href="javascript:void(0)" class="item-link item-content">
+			          <div class="item-media"><img src="../img/video.ico" style='width: 4rem;'></div>
+			          <div class="item-inner">
+			            <div class="item-title-row">
+			              <div class="item-title">${bean.name }</div>
+			              <div class="item-after" style="    color: red;">${bean.price }</div>
+			            </div>
+			            <div class="item-subtitle"></div>
+			            <div class="item-text" style="    color: #679c21;">“${bean.remark }”</div>
+			          </div>
+			        </a>
+			      </li>
+			    </c:forEach>
+			    </ul>
+			  </div>
+		 
 						</div>
 
 					</div>

@@ -40,11 +40,15 @@ public class Project {
 	private String title4;
 	private String title5;
 	
+	@ManyToOne(fetch = FetchType.EAGER)
+	private User user;
 	
-	
-	
-
-	
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public Double getPrice() {
 		return price;
 	}
