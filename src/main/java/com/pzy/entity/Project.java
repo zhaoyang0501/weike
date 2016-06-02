@@ -13,8 +13,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 /***
- * 产品实体
- * @author Administrator
+ *  * @author qq:263608237
  *
  */
 @Entity
